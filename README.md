@@ -1,3 +1,9 @@
+🍕 Get Me a Pizza
+
+A full-stack pizza ordering app built with Next.js 15, NextAuth, and MongoDB. Users can sign in using GitHub, Google, Twitter, Facebook, LinkedIn, or Apple. Features secure authentication, user management, and a responsive UI for desktop and mobile.
+
+Tech Stack: Next.js, NextAuth.js, MongoDB, Mongoose, OAuth
+
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
