@@ -1,6 +1,6 @@
 Get Me A Pizza 🍕
 
-Get Me A Pizza is a full-stack Next.js application that allows users to browse and order pizzas with seamless authentication and a modern, responsive interface. The project showcases my skills in building scalable web applications with social login, database integration, and state management.
+Get Me A Pizza is a full-stack Next.js application that allows users to crowd funding with seamless authentication and a modern, responsive interface. The project showcases my skills in building scalable web applications with social login, database integration, and state management.
 
 Key Features -
 - OAuth Authentication: Login with Google, GitHub, LinkedIn, Twitter, Facebook, and Apple using NextAuth.js.
