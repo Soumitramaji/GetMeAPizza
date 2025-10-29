@@ -23,7 +23,7 @@ Tech Stack -
 Example Workflow -
 
 - User login(provide your id and secret on .env file to login using social accounts otherwise just click as a guest login).
-- Go to dashboard for update your information # (do not update your username if you login as a guest).
+- Go to dashboard for update your information ( # do not update your username if you login as a guest).
 - Now click on 'Your Page' section for payment.
 - On 'Your Page' section you can see your details.
 - Now donate whatever you can to help your favorite creator.
