@@ -53,7 +53,7 @@ Follow these steps to run Get-Me-A-Pizza locally:
 
 1. Clone the repository
 
-git clone (https://github.com/Soumitramaji/Get-Me-A-Pizza.git)
+git clone (https://github.com/Soumitramaji/GetMeAPizza.git)
 
 2. Install dependencies
 
