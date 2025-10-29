@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { useSession, signOut } from 'next-auth/react';
+import { useSession, signOut, signIn } from 'next-auth/react';
 
 const Navbar = () => {
   const { data: session } = useSession();
@@ -11,6 +11,12 @@ const Navbar = () => {
 
   useEffect(() => setMounted(true), []);
   if (!mounted) return null;
+
+  // Guest login function
+  const handleGuestLogin = async () => {
+    // Use NextAuth credentials provider for guest login
+    await signIn('guest', { callbackUrl: '/' });
+  };
 
   return (
     <nav className="bg-gray-800 text-white flex flex-wrap justify-between items-center px-4 py-3 md:px-8">
@@ -76,11 +82,19 @@ const Navbar = () => {
             </div>
           </>
         ) : (
-          <Link href="/login">
-            <button className="text-white bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl font-medium rounded-lg text-sm px-4 py-2">
-              Login
+          <div className="flex gap-2">
+            <Link href="/login">
+              <button className="text-white bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl font-medium rounded-lg text-sm px-4 py-2">
+                Login
+              </button>
+            </Link>
+            <button
+              onClick={handleGuestLogin}
+              className="text-white bg-green-600 hover:bg-green-700 font-medium rounded-lg text-sm px-4 py-2"
+            >
+              Guest Login
             </button>
-          </Link>
+          </div>
         )}
       </div>
     </nav>

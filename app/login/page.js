@@ -119,6 +119,17 @@ const Login = () => {
 </button>
 
 
+<button
+  onClick={() => signIn('credentials', { callbackUrl: '/dashboard' })}
+  className="flex items-center bg-gray-700 border border-gray-500 rounded-lg shadow-md w-full max-w-xs px-6 py-2 text-sm font-medium text-white hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500"
+>
+  <svg className="h-6 w-6 mr-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white">
+    <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+  </svg>
+  <span>Continue as Guest</span>
+</button>
+
+
       </div>
     </div>
   );

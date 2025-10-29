@@ -5,6 +5,7 @@ import TwitterProvider from "next-auth/providers/twitter";
 import FacebookProvider from "next-auth/providers/facebook";
 import LinkedInProvider from "next-auth/providers/linkedin";
 import AppleProvider from "next-auth/providers/apple";
+import CredentialsProvider from "next-auth/providers/credentials";
 import User from "@/models/User";
 import connectDB from "@/db/connectDb";
 
@@ -34,12 +35,40 @@ export const authOptions = {
       clientId: process.env.APPLE_CLIENT_ID,
       clientSecret: process.env.APPLE_CLIENT_SECRET,
     }),
+    CredentialsProvider({
+      name: "Guest Login",
+      credentials: {},
+      async authorize() {
+        await connectDB();
+
+        // Generate a unique guest username
+        const guestUsername = `guest_${Date.now()}`;
+
+        // Create guest user in DB
+        const guestUser = new User({
+          email: `${guestUsername}@guest.local`, // dummy email
+          username: guestUsername,
+          provider: "guest",
+        });
+        await guestUser.save();
+
+        return {
+          id: guestUser._id,
+          name: guestUser.username,
+          email: guestUser.email,
+        };
+      },
+    }),
   ],
 
   callbacks: {
     async signIn({ user, account }) {
-      await connectDB();
+      if (account.provider === "guest") {
+        // Guest users are already created in authorize(), just allow sign in
+        return true;
+      }
 
+      await connectDB();
       const existingUser = await User.findOne({ email: user.email });
       if (!existingUser) {
         const newUser = new User({
